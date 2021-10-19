@@ -11,9 +11,9 @@ export const sumForwardRecursive = (first: LinkNode<number>): number => {
   
   const makeTable = (current, sumSoFar) => {
 
-  if (current != null)
+  if (current !== null)
   
-  return makeTable(current.next, sumSoFar+current.Value)
+  return makeTable(current.next, sumSoFar+current.value)
 
   else 
   
@@ -26,10 +26,33 @@ export const sumForwardRecursive = (first: LinkNode<number>): number => {
 };
 
 export const sumLoop = (first: LinkNode<number>): number => {
-  return 0;
+
+  let current = first;
+  let sumSoFar = 0;
+
+  while (current !== null) {
+
+    sumSoFar += current.value;
+    current = current.next;
+
+  }
+
+  return sumSoFar;
+
 };
 
 export const sumBackwardRecursive = (first: LinkNode<number>): number => {
+
+  if (first === null)
+
+  return 0;
+
+  else
+
+  return first.value + sumBackwardRecursive(first.nex);
+
+
+
   return 0;
 };
 

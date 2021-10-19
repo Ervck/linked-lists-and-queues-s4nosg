@@ -33,25 +33,25 @@ class LinkedList<T> {
    * @returns Node at given index
    */
   public nodeAt(index: number): LinkNode<T> {
-    return new LinkNode<T>(
-      Object(42) as T,
-      new LinkNode<T>(
-        Object(43) as T,
-        new LinkNode<T>(
-          Object(44) as T,
-          new LinkNode<T>(
-            Object(45) as T,
-            new LinkNode<T>(
-              Object(46) as T,
-              new LinkNode<T>(
-                Object(47) as T,
-                new LinkNode<T>(Object(48) as T, null)
-              )
-            )
-          )
-        )
-      )
-    );
+
+    const makeTable = (currentIndex: number, currentNode: LinkNode<T>): LinkNode<T> => {
+
+      if (currentIndex !== index) {
+
+       return makeTable(currentIndex + 1, currentNode.next); 
+
+      }
+
+      else {
+
+        return currentNode;
+
+      }
+
+    }
+
+    return makeTable(0, this.head);
+
   }
 
   /**
@@ -61,7 +61,7 @@ class LinkedList<T> {
    */
   public itemAt(index: number): T {
     // this should be one line using your nodeAt helper function
-    return Object(42) as T; // remove this line
+    return this.nodeAt(index).value; // remove this line
   }
 
   /**
@@ -69,10 +69,17 @@ class LinkedList<T> {
    * @param item - item to add to front of list
    */
   public insertAtFront(item: T): void {
-    // implement this
-    // ADD to this: need to consider empty list for tail
-    //              also update number of Nodes
-    this.head = new LinkNode<T>(item, this.head);
+
+    let newNode = new LinkNode(item, this.head);
+
+    if (this.head === null) {
+
+      this.tail = newNode;
+
+    }
+
+      this.head = newNode
+
   }
 
   /**
