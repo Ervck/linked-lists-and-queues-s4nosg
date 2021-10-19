@@ -253,7 +253,7 @@ class LinkedList<T> {
    */
   public removeAll(item: T, start: LinkNode<T> | null): void {
 
-    let currentNode = this.head;
+    // let currentNode = this.head;
     
 
 
@@ -268,8 +268,25 @@ class LinkedList<T> {
    * number of items in list
    */
   public get length(): number {
-    // leave as is
-    return this.numOfNodes || 0;
+
+    const makeTable = ( currentNode:LinkNode<T>, nodeLength:number ):number => {
+      
+      if ( currentNode !== null ) {
+
+        return makeTable( currentNode.next, nodeLength + 1 );
+
+      }
+
+      else {
+
+        return nodeLength;
+
+      }
+
+    }
+    
+    return makeTable(this.head, 0);
+    
   }
 }
 
