@@ -24,7 +24,7 @@ class LinkedList<T> {
   constructor() {
     this.head = null;
     this.tail = null;
-    // this.numOfNodes = ____; // fill in initial value
+    // this.numOfNodes = 0; // fill in initial value
   }
 
   /**
