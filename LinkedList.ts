@@ -87,7 +87,21 @@ class LinkedList<T> {
    * @param item - item to add to end of list
    */
   public insertAtEnd(item: T): void {
-    // implement this
+
+    let newNode = new LinkNode(item, null);
+
+    if (this.tail === null) {
+
+      this.insertAtFront(item);
+
+    }
+
+    else {
+
+      this.tail.next = newNode;
+      this.tail = newNode;
+
+    }
   }
 
   /**
@@ -135,6 +149,18 @@ class LinkedList<T> {
    * @returns index of first occurrence of item if present or -1 otherwise
    */
   public indexOf(item: T): number {
+    // find index of first occurrence of item (assume 0 is first node, 1 is second, etc.)
+
+    for (let i = 0; i < this.length; i++) {
+      
+      if (this.itemAt(i) === item) {
+        
+        return i;
+     
+      }
+
+    }
+
     return -1;
   }
 
@@ -155,7 +181,39 @@ class LinkedList<T> {
     // 4. index = this.length - 1: use private method
     //    nodeAt to get the Node that comes at the previous
     //    index and change its next Node; ALSO change tail
-    return Object(42) as T;
+    
+    
+    const value = this.nodeAt(index).value;
+
+    if (length == 1) {
+
+      this.head = null;
+      this.tail = null;
+      
+    } 
+    
+    else if (index === 0) {
+
+      this.head = this.head.next;
+
+    }
+    
+    else if (index === this.length - 1) {
+      let currentNode = this.nodeAt(index - 1);
+      this.tail = currentNode;
+      currentNode.next = null;
+
+    } 
+      
+    else {
+      let currentNode = this.nodeAt(index - 1);
+      currentNode.next = currentNode.next.next;
+
+    }
+    
+    return value;
+    
+  
   }
 
   public insert(index: number, item: T): void {
@@ -165,6 +223,27 @@ class LinkedList<T> {
     //    nodeAt to get the Node at the previous index and
     //    change its next Node to be a Node with this item
     // 3. index = this.length-1: Call insertAtEnd
+
+    if (index === 0) {
+
+      this.insertAtFront(item);
+
+    }
+
+    else if (index === this.length) {
+
+      this.insertAtEnd(item);
+
+    }
+
+    else {
+
+      let prevNode = this.nodeAt(index - 1);
+      let newNode = new LinkNode(item, prevNode.next);
+      prevNode.next = newNode;
+
+    }
+
   }
 
   /**
@@ -172,7 +251,21 @@ class LinkedList<T> {
    * @param item - the item to remove
    * @param start - the Node to start with
    */
-  public removeAll(item: T, start: LinkNode<T> | null): void {}
+  public removeAll(item: T, start: LinkNode<T> | null): void {
+
+    let currentNode = this.head;
+    
+    while (currentNode !== null && currentNode !== start) {
+
+      currentNode = currentNode.next;
+    }
+
+    while (currentNode === start) {
+
+      currentNode = this.tail;
+    }
+
+  }
 
   /**
    * Remove all duplicate items in list

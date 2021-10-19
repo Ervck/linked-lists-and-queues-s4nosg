@@ -49,11 +49,8 @@ export const sumBackwardRecursive = (first: LinkNode<number>): number => {
 
   else
 
-  return first.value + sumBackwardRecursive(first.nex);
+  return first.value + sumBackwardRecursive(first.next);
 
-
-
-  return 0;
 };
 
 /**
