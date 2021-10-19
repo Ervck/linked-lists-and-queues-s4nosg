@@ -255,15 +255,7 @@ class LinkedList<T> {
 
     let currentNode = this.head;
     
-    while (currentNode !== null && currentNode !== start) {
 
-      currentNode = currentNode.next;
-    }
-
-    while (currentNode === start) {
-
-      currentNode = this.tail;
-    }
 
   }
 
