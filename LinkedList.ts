@@ -253,10 +253,23 @@ class LinkedList<T> {
    */
   public removeAll(item: T, start: LinkNode<T> | null): void {
 
-    // let currentNode = this.head;
+   let currentNode = this.head;
+   let index = 0;
+
+   if (currentNode !== start) {
+
+    currentNode = currentNode.next;
+
+   }
+/*
+
+   if () {
+
     
 
+   }
 
+*/
   }
 
   /**
