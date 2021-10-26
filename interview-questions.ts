@@ -65,9 +65,10 @@ export const advanceNodeForwardRecursive = <T extends {}>(
 ): LinkNode<T> => {
   const makeTable = (current: LinkNode<T>, currentIndex:number): LinkNode<T> => {
 
-    if () {
+    if (currentIndex !== index) {
 
-      
+
+
     }
 
 }
