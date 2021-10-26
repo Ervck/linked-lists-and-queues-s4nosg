@@ -67,7 +67,7 @@ export const advanceNodeForwardRecursive = <T extends {}>(
 
     if (currentIndex !== index) {
 
-
+      return makeTable(current.next, currentIndex +1);
 
     }
 
