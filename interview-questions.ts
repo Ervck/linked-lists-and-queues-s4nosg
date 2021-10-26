@@ -63,25 +63,16 @@ export const advanceNodeForwardRecursive = <T extends {}>(
   head: LinkNode<T> | null,
   index: number
 ): LinkNode<T> => {
-  return new LinkNode<T>(
-    Object(42) as T,
-    new LinkNode<T>(
-      Object(43) as T,
-      new LinkNode<T>(
-        Object(44) as T,
-        new LinkNode<T>(
-          Object(45) as T,
-          new LinkNode<T>(
-            Object(46) as T,
-            new LinkNode<T>(
-              Object(47) as T,
-              new LinkNode<T>(Object(48) as T, null)
-            )
-          )
-        )
-      )
-    )
-  );
+  const makeTable = (current: LinkNode<T>, currentIndex:number): LinkNode<T> => {
+
+    if () {
+
+      
+    }
+
+}
+
+    
 };
 
 export const advanceNodeForLoop = <T>(
