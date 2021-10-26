@@ -252,27 +252,34 @@ class LinkedList<T> {
    * @param start - the Node to start with
    */
   public removeAll(item: T, start: LinkNode<T> | null): void {
-
 /*
-  let prevNode = ; 
-  let currentNode = ;
+
+  let prevNode = start; 
+  let currentNode = start.next;
+   
+  while(currentNode !== null) {
+
+   if (currentNode.value === item) {
+
+    prevNode.next = currentNode.next
+
+   }
    
 
-   if (currentNode.next !== item) {
 
+   else {
 
+    prevNode = prevNode.next;
 
-   }
-
-
-   else () {
-
-
-
-   }
-
-*/
   }
+}
+
+  currentNode = currentNode.next;
+
+  */
+  }
+
+  
 
   /**
    * Remove all duplicate items in list
