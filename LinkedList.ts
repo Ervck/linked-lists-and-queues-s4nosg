@@ -256,16 +256,12 @@ class LinkedList<T> {
 
   let prevNode = start; 
   let currentNode = start.next;
-   
-  while(currentNode !== null) {
 
    if (currentNode.value === item) {
 
     prevNode.next = currentNode.next
 
    }
-   
-
 
    else {
 
